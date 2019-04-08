@@ -24,9 +24,9 @@
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
 //    [SHLocationManager openAppSetting];
     
-//    [SHLocationManager getCoordinateWithBlock:^(CLLocationCoordinate2D coordinate) {
-//
-//    }];
+    [SHLocationManager getCoordinateWithBlock:^(CLLocationCoordinate2D coordinate) {
+        NSLog(@"1");
+    }];
     
 //    CLLocationCoordinate2D coor;
 //    coor.latitude = 30.241991646563449;
