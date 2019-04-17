@@ -6,17 +6,17 @@
 #  To see working Podspecs in the CocoaPods repo see https://github.com/CocoaPods/Specs/
 #
 
-Pod::Spec.new do |spec|
+Pod::Spec.new do |s|
 
-s.name         = "SHLocation"
-s.version      = "1.0.0"
-s.summary      = "定位管理器"
-s.license      = "MIT"
-s.authors      = { "CSH" => "624089195@qq.com" }
-s.platform     = :ios, "8.0"
-s.requires_arc = true
-s.homepage     = "https://github.com/CCSH/SHLocation"
-s.source       = { :git => "https://github.com/CCSH/SHLocation.git", :tag => s.version }
-s.source_files = "SHLocation/*.{h,m}"
+    s.name         = "SHLocation"
+    s.version      = "1.0.0"
+    s.summary      = "定位管理器"
+    s.license      = "MIT"
+    s.authors      = { "CSH" => "624089195@qq.com" }
+    s.platform     = :ios, "8.0"
+    s.requires_arc = true
+    s.homepage     = "https://github.com/CCSH/SHLocation"
+    s.source       = { :git => "https://github.com/CCSH/SHLocation.git", :tag => s.version }
+    s.source_files = "SHLocation/*.{h,m}"
 
 end
