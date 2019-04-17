@@ -81,7 +81,6 @@
 #pragma mark - CLLocationManagerDelegate
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
     
-    [manager stopUpdatingLocation];
     CLLocation *location = [locations firstObject];
     if (self.coordinateBlock) {
         self.coordinateBlock(location.coordinate);
@@ -95,12 +94,55 @@
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
 }
 
+#pragma mark 获取位置权限状态
++ (SHLocationType)getLocAuthorizationStatus{
+    
+    CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
+    switch (status) {
+        case kCLAuthorizationStatusAuthorizedAlways:
+        case kCLAuthorizationStatusAuthorizedWhenInUse:
+        {
+            return SHLocationType_use;
+        }
+            break;
+        case kCLAuthorizationStatusNotDetermined:
+        {
+            return SHLocationType_not_determined;
+        }
+            break;
+        default:
+            break;
+    }
+    
+    return SHLocationType_no_use;
+}
+
+#pragma mark 获取定位权限
++ (void)getLocAuthorizationWithIsAlways:(BOOL)isAlways{
+    
+    switch ([SHLocationManager getLocAuthorizationStatus]) {
+        case SHLocationType_not_determined://未做决定
+        {
+            if (isAlways) {
+                //始终允许 NSLocationAlwaysAndWhenInUseUsageDescription
+                [[self shareInstance].locationManager requestAlwaysAuthorization];
+            }else{
+                 //使用期间使用 NSLocationWhenInUseUsageDescription
+                [[self shareInstance].locationManager requestWhenInUseAuthorization];
+            }
+        }
+            break;
+        default:
+            break;
+    }
+}
+
 #pragma mark 获取经纬度
 + (void)getCoordinateWithBlock:(CoordinateBlock)block{
     
     [self shareInstance].coordinateBlock = block;
-    //开启权限
-    [self getLocPermissions];
+    //开始定位
+    [SHLocationManager startUpdatingLocation];
 }
 
 #pragma mark 通过经纬度 获取城市名
@@ -139,5 +181,16 @@
         }
     }];
 }
+
+#pragma mark 开始定位
++ (void)startUpdatingLocation{
+    [[self shareInstance].locationManager startUpdatingLocation];
+}
+
+#pragma mark 结束定位
++ (void)stopUpdatingLocation{
+     [[self shareInstance].locationManager stopUpdatingLocation];
+}
+
 
 @end

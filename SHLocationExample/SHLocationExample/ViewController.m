@@ -22,11 +22,36 @@
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-//    [SHLocationManager openAppSetting];
     
-    [SHLocationManager getCoordinateWithBlock:^(CLLocationCoordinate2D coordinate) {
-        NSLog(@"1");
-    }];
+    switch ([SHLocationManager getLocAuthorizationStatus]) {
+        case SHLocationType_use:
+        {
+            [SHLocationManager getCoordinateWithBlock:^(CLLocationCoordinate2D coordinate) {
+                
+                [SHLocationManager stopUpdatingLocation];
+                NSLog(@"1");
+            }];
+        }
+            break;
+        case SHLocationType_no_use:
+        {
+            [SHLocationManager openAppSetting];
+        }
+            break;
+        case SHLocationType_not_determined:
+        {
+            [SHLocationManager getLocAuthorizationWithIsAlways:NO];
+            
+            [SHLocationManager getCoordinateWithBlock:^(CLLocationCoordinate2D coordinate) {
+                
+                [SHLocationManager stopUpdatingLocation];
+                NSLog(@"1");
+            }];
+        }
+            break;
+        default:
+            break;
+    }
     
 //    CLLocationCoordinate2D coor;
 //    coor.latitude = 30.241991646563449;
