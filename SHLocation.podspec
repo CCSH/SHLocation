@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
     s.name         = "SHLocation"
-    s.version      = "1.0.0"
+    s.version      = "1.0.1"
     s.summary      = "定位管理器"
     s.license      = "MIT"
     s.authors      = { "CSH" => "624089195@qq.com" }

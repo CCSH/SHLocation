@@ -15,7 +15,6 @@
 		5CDF8A45224DB6D500707E04 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CDF8A44224DB6D500707E04 /* main.m */; };
 		5CDF8A4F224DB6D600707E04 /* SHLocationExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CDF8A4E224DB6D600707E04 /* SHLocationExampleTests.m */; };
 		5CDF8A5A224DB6D600707E04 /* SHLocationExampleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CDF8A59224DB6D600707E04 /* SHLocationExampleUITests.m */; };
-		5CDF8A6A224DB99900707E04 /* SHLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CDF8A69224DB99900707E04 /* SHLocationManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,8 +51,8 @@
 		5CDF8A55224DB6D600707E04 /* SHLocationExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SHLocationExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CDF8A59224DB6D600707E04 /* SHLocationExampleUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHLocationExampleUITests.m; sourceTree = "<group>"; };
 		5CDF8A5B224DB6D600707E04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5CDF8A68224DB99900707E04 /* SHLocationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHLocationManager.h; sourceTree = "<group>"; };
-		5CDF8A69224DB99900707E04 /* SHLocationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHLocationManager.m; sourceTree = "<group>"; };
+		83562D49264A634D009B2430 /* SHLocationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHLocationManager.m; sourceTree = "<group>"; };
+		83562D4A264A634D009B2430 /* SHLocationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHLocationManager.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +103,7 @@
 		5CDF8A34224DB6D400707E04 /* SHLocationExample */ = {
 			isa = PBXGroup;
 			children = (
-				5CDF8A67224DB96900707E04 /* SHLocation */,
+				83562D48264A634D009B2430 /* SHLocation */,
 				5CDF8A35224DB6D400707E04 /* AppDelegate.h */,
 				5CDF8A36224DB6D400707E04 /* AppDelegate.m */,
 				5CDF8A38224DB6D400707E04 /* ViewController.h */,
@@ -136,13 +135,14 @@
 			path = SHLocationExampleUITests;
 			sourceTree = "<group>";
 		};
-		5CDF8A67224DB96900707E04 /* SHLocation */ = {
+		83562D48264A634D009B2430 /* SHLocation */ = {
 			isa = PBXGroup;
 			children = (
-				5CDF8A68224DB99900707E04 /* SHLocationManager.h */,
-				5CDF8A69224DB99900707E04 /* SHLocationManager.m */,
+				83562D4A264A634D009B2430 /* SHLocationManager.h */,
+				83562D49264A634D009B2430 /* SHLocationManager.m */,
 			);
-			path = SHLocation;
+			name = SHLocation;
+			path = ../../SHLocation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,7 +276,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CDF8A3A224DB6D400707E04 /* ViewController.m in Sources */,
-				5CDF8A6A224DB99900707E04 /* SHLocationManager.m in Sources */,
 				5CDF8A45224DB6D500707E04 /* main.m in Sources */,
 				5CDF8A37224DB6D400707E04 /* AppDelegate.m in Sources */,
 			);
